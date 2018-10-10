@@ -14,12 +14,23 @@ public class Clock {
 		//take colon to end of string and make it an integer
 		int minutes = Integer.parseInt(answer.substring(colonInd + 1, answer.length()));
 		//check that it came in correctly
-		//System.out.println("Hours: " + hours);
-		//System.out.println("Minutes: " + minutes);
+		System.out.println("Hours: " + hours);
+		System.out.println("Minutes: " + minutes);
 		
+		int hours2 = 0;
+		int endhours = 0; 
+		int endmin = 0; 
 		
+		String duration = JOptionPane.showInputDialog(" Please enter a duration of time in minutes");
+		double endTime = Double.parseDouble(duration); 
 		
+		endhours = (int)((minutes + endTime)%60);
+		endmin = (int)(endhours%60);
+		endhours = ((endmin + minutes)%60);
 		
+		endhours = (endhours + hours);
+		endmin = (endmin + minutes);
 		
+		JOptionPane.showMessageDialog(null, " Your event ends at " + (endhours + hours) + " : " + endmin);
 	}
 }
